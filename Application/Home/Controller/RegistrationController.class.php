@@ -21,6 +21,17 @@ class RegistrationController extends RestController {
 
     }
 
+    public function getJoinedEventByTeamID($ID) {
+        $res = $this->_getJoinedEventByTeamID($ID);
+        $this->response($res, 'json');
+    }
+
+    private function _getJoinedEventByTeamID($ID) {
+        $sql = new RegistrationModel();
+        $res = $sql->field("*")->where("event_id=$ID")->select();
+        return $res;
+    }
+
     private function _registerEvent($team_id, $event_id) {
         $sql = new RegistrationModel();
         $data = array();

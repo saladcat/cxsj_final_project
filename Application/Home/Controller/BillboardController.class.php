@@ -37,9 +37,13 @@ class BillboardController extends RestController {
 
     public function postNewBillboard() {
         $obj = json_decode($_POST["Content"]);
-//        $arr = array($obj);
+        $arr = array($obj);
         $title = $obj->title;
-        $content = $obj->content;
+        $content = $obj->content;//todo
+        $this->response(11111, "json");
+//        foreach ($arr as $key => $value) {
+//            echo $key . "=>" . $value . "\n\n";
+//        }
         $this->_addBillboard($title, $content);
     }
 
