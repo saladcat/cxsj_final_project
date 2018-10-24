@@ -28,13 +28,26 @@ class EventController extends RestController {
     }
 
     # post method
-    public function addEvent() {
-        # todo
+    public function postNewEvent() {
+        $obj = json_decode($_POST["Content"]);
+        # data 是一个array，有index如下
+        # event_name,max_team_member,min_team_member,team_limit,year
+        $data = array();
+        $data['event_name'] = $obj->event_name;
+        $data['max_team_member'] = $obj->max_team_member;
+        $data['min_team_member'] = $obj->min_team_member;
+        $data['team_limit'] = $obj->team_limit;
+        $data['year'] = $obj->year;
+        $this->_addEvent($data);
     }
 
     public function getState() {
         $data = $this->_getState();
         $this->response($data, 'json');
+    }
+
+    public function delEventByID($ID) {
+        $data = $this->_delEvent($ID);
     }
 
     private function _getInfoByID($ID) {
@@ -59,12 +72,12 @@ class EventController extends RestController {
 
     private function _delEvent($ID) {
         $sql = new EventModel();
-        $sql->where("ad_id=$ID")->save(array("is_delete" => 1));
+        $sql->where("event_id=$ID")->save(array("is_delete" => 1));
     }
 
     private function _updateEvent($ID, $data) {
         $sql = new EventModel();
-        $sql->where("ad_id=$ID")->save($data);
+        $sql->where("event_id=$ID")->save($data);
     }
 
     private function _getState() {
