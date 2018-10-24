@@ -23,3 +23,17 @@ C:\code\Demo\Demo\obj\Debug\Demo.csproj.CopyComplete
 C:\code\Demo\Demo\obj\Debug\Demo.exe
 C:\code\Demo\Demo\obj\Debug\Demo.pdb
 C:\code\Demo\Demo\obj\Debug\Demo.Form2.resources
+C:\wamp64\www\cxsj_final_project\Demo\Demo\bin\Debug\Demo.exe
+C:\wamp64\www\cxsj_final_project\Demo\Demo\bin\Debug\Demo.pdb
+C:\wamp64\www\cxsj_final_project\Demo\Demo\bin\Debug\Newtonsoft.Json.dll
+C:\wamp64\www\cxsj_final_project\Demo\Demo\bin\Debug\Newtonsoft.Json.xml
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.Form1.resources
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.Form2.resources
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.frmPost.resources
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.Properties.Resources.resources
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.csproj.GenerateResource.cache
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.csproj.CoreCompileInputs.cache
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.csproj.CopyComplete
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.exe
+C:\wamp64\www\cxsj_final_project\Demo\Demo\obj\Debug\Demo.pdb

@@ -11,7 +11,7 @@ namespace Home\Model;
 use Think\Model;
 
 class EventModel extends Model {
-    protected $trueTableName = 'Event';
+    protected $trueTableName = 'event';
 
     public function __construct() {
         parent::__construct();

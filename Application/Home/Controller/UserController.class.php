@@ -26,14 +26,14 @@ class UserController extends RestController {
         $this->_addNewUser($user_id, $name, $phone, $gender, $email, $password, $department_id);
     }
 
-    public function getInfoByUserID($ID) {
-        $data = $this->_getInfoByUserID($ID);
-        $this->response($data);
+    public function getInfoByUserID($id) {
+        $data = $this->_getInfoByUserID($id);
+        $this->response($data,'json');
     }
 
-    public function getInfoByDepartID($ID) {
-        $data = $this->_getInfoByDepartID($ID);
-        $this->response($data);
+    public function getInfoByDepartID($id) {
+        $data = $this->_getInfoByDepartID($id);
+        $this->response($data,'json');
     }
 
 
@@ -55,20 +55,17 @@ class UserController extends RestController {
         }
     }
 
-    private function _getInfoByUserID($ID) {
+    private function _getInfoByUserID($id) {
         $info = array();
         $sql = new UserModel();
-        $res = $sql->field('*')->where("user_id=$ID")->select();
-        foreach ($res[0] as $key => $value) {
-            $info[$key] = $value;
-        }
-        return $info;
+        $res = $sql->field('*')->where("user_id=$id")->select();
+        return $res;
     }
 
-    private function _getInfoByDepartID($ID) {
+    private function _getInfoByDepartID($id) {
         $info = array();
         $sql = new Model('college_name');
-        $res = $sql->field('*')->where("department_id=$ID")->select();
+        $res = $sql->field('*')->where("department_id=$id")->select();
         foreach ($res as $key => $value) {
             $info[$key] = $value;
         }

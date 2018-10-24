@@ -9,6 +9,8 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections;
+
 namespace Demo
 {
     public partial class Form2 : Form
@@ -55,15 +57,28 @@ namespace Demo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string URI = "http://localhost/cxsj_final/Home/Billboard/getAllID";
-            Dictionary<string, string> a = new Dictionary<string, string>();
-            a["title"] = "title1";
-            a["content"] = "content1";
-            string jsonResult = JsonConvert.SerializeObject(a);
-            string PostURL = "http://localhost/cxsj_final/Home/Billboard/postNewBillboard";
+            Dictionary<string, int> a = new Dictionary<string, int>();
+            a["team_id"] = 10;
+            a["event_id"] = 10;
+
+            Team team = new Team();
+            int b = 000;
+            int c = 111;
+            team.user_id.Add(b);
+            team.user_id.Add(c);
+            
+            string jsonResult = JsonConvert.SerializeObject(team);
+            string PostURL = "http://localhost/cxsj_final_project/Home/Team/postNewTeam";
             string ParamString = "Content=" + jsonResult;
+            string result = HttpPost(PostURL, ParamString);
+            string x= "1";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string URI = "http://localhost/cxsj_final/Home/Billboard/getAllID";
             string result = HttpGet(URI, "");
-            MessageBox.Show(result);
+            string x = "1";
         }
     }
 }

@@ -16,32 +16,30 @@ use Think\Model;
 class TeamController extends RestController {
     public function postNewTeam() {
         $obj = json_decode($_POST["Content"]);
-        $team_members = array();
+        $team_members = $obj->user_id;
         $team_name = $obj->team_name;
-        //todo
         $res = $this->_addNewTeam($team_name, $team_members);
         $this->response($res, 'json');
 
     }
 
-    public function getJoinedTeamIDByUserID($ID) {
-        $res = $this->_getJoinedTeamIDByUserID($ID);
+    public function getJoinedTeamIDByUserID($id) {
+        $res = $this->_getJoinedTeamIDByUserID($id);
         $this->response($res, 'json');
 
     }
 
-    public function getMembersIDByTeamID($ID) {
-        $IDs = $this->_getMembersIDByTeamID($ID);
+    public function getMembersIDByTeamID($id) {
+        $IDs = $this->_getMembersIDByTeamID($id);
         $datas = array();
-        foreach ($IDs as $ID) {
-            array_push($datas, $ID);
-
+        foreach ($IDs as $id) {
+            array_push($datas, $id);
         }
         $this->response($datas, "json");
     }
 
-    public function getTeamNameByTeamID($ID) {
-        $team_name = $this->_getTeamNameByTeamID($ID);
+    public function getTeamNameByTeamID($id) {
+        $team_name = $this->_getTeamNameByTeamID($id);
         $this->response($team_name, "json");
     }
 

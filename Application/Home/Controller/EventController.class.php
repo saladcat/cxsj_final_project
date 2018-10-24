@@ -53,7 +53,7 @@ class EventController extends RestController {
     private function _getInfoByID($id) {
         $sql = new EventModel();
         $field = "event_id,event_name,max_team_member,min_team_member,team_limit,year,is_delete";
-        $data = $sql->field($field)->where("event_id=$id")->select();
+        $data = $sql->where("event_id=$id")->select();
         return $data;
     }
 
@@ -98,7 +98,7 @@ class EventController extends RestController {
                 foreach ($user_ids as $user_id) {
                     $user_id = $user_id['user_id'];
                     $user_name = $sqlUser->field('name')->where("user_id=$user_id")->select();
-                    $user_name = $user_name['name'];
+//                    $user_name = $user_name['name'];
                     $data[$event_id][$team_id][$user_id] = $user_name;
                 }
             }

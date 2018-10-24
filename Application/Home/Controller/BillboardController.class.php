@@ -40,7 +40,7 @@ class BillboardController extends RestController {
         $arr = array($obj);
         $title = $obj->title;
         $content = $obj->content;//todo
-        $this->response(11111, "json");
+//        $this->response(11111, "json");
 //        foreach ($arr as $key => $value) {
 //            echo $key . "=>" . $value . "\n\n";
 //        }

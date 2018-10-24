@@ -16,13 +16,13 @@ class RegistrationController extends RestController {
         $obj = json_decode($_POST["Content"]);
 //        $arr = array($obj);
         $team_id = $obj->team_id;
-        $event_id = $obj->team_id;
+        $event_id = $obj->event_id;
         $this->_registerEvent($team_id, $event_id);
-
+        var_dump($obj);
     }
 
-    public function getJoinedEventByTeamID($ID) {
-        $res = $this->_getJoinedEventByTeamID($ID);
+    public function getJoinedEventByTeamID($id) {
+        $res = $this->_getJoinedEventByTeamID($id);
         $this->response($res, 'json');
     }
 
