@@ -17,8 +17,8 @@ use Home\Model\UserModel;
 use Think\Model;
 
 class EventController extends RestController {
-    public function getInfoByID($ID) {
-        $data = $this->_getInfoByID($ID);
+    public function getInfoByID($id) {
+        $data = $this->_getInfoByID($id);
         $this->response($data, 'json');
     }
 
@@ -46,14 +46,14 @@ class EventController extends RestController {
         $this->response($data, 'json');
     }
 
-    public function delEventByID($ID) {
-        $data = $this->_delEvent($ID);
+    public function delEventByID($id) {
+        $data = $this->_delEvent($id);
     }
 
-    private function _getInfoByID($ID) {
+    private function _getInfoByID($id) {
         $sql = new EventModel();
         $field = "event_id,event_name,max_team_member,min_team_member,team_limit,year,is_delete";
-        $data = $sql->field($field)->where("event_id=$ID")->select();
+        $data = $sql->field($field)->where("event_id=$id")->select();
         return $data;
     }
 
@@ -70,14 +70,14 @@ class EventController extends RestController {
         $sql->save($data);
     }
 
-    private function _delEvent($ID) {
+    private function _delEvent($id) {
         $sql = new EventModel();
-        $sql->where("event_id=$ID")->save(array("is_delete" => 1));
+        $sql->where("event_id=$id")->save(array("is_delete" => 1));
     }
 
-    private function _updateEvent($ID, $data) {
+    private function _updateEvent($id, $data) {
         $sql = new EventModel();
-        $sql->where("event_id=$ID")->save($data);
+        $sql->where("event_id=$id")->save($data);
     }
 
     private function _getState() {
