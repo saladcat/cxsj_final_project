@@ -11,11 +11,17 @@ INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is
 INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is_delete) VALUES (3, null, null, '2018-10-23 14:51:47', 0);
 INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is_delete) VALUES (4, 'dsdsad', 'dsada', '2018-10-23 14:52:06', 0);
 INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is_delete) VALUES (5, null, null, '2018-10-23 14:53:09', 0);
+INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is_delete) VALUES (6, 'title1', 'content1', '2018-10-24 21:02:17', 0);
+INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is_delete) VALUES (7, 'title1', 'content1', '2018-10-24 21:02:42', 0);
+INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is_delete) VALUES (8, null, null, '2018-10-24 21:07:12', 0);
+INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is_delete) VALUES (9, null, null, '2018-10-24 21:07:33', 0);
+INSERT INTO sport_system.billboard (ad_id, ad_name, ad_content, ad_data_time, is_delete) VALUES (10, null, null, '2018-10-24 21:08:06', 0);
 CREATE TABLE sport_system.college_name
 (
     department_id int(11) PRIMARY KEY NOT NULL,
     department_name varchar(50)
 );
+INSERT INTO sport_system.college_name (department_id, department_name) VALUES (1, 'cs');
 CREATE TABLE sport_system.department
 (
     department_id int(11) NOT NULL,
@@ -24,6 +30,7 @@ CREATE TABLE sport_system.department
     is_delete int(11) DEFAULT '0',
     CONSTRAINT `PRIMARY` PRIMARY KEY (department_id, class, grade)
 );
+INSERT INTO sport_system.department (department_id, grade, class, is_delete) VALUES (1, 1, 1, 0);
 CREATE TABLE sport_system.event
 (
     event_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -34,7 +41,8 @@ CREATE TABLE sport_system.event
     year int(11),
     is_delete int(11) DEFAULT '0'
 );
-INSERT INTO sport_system.event (event_id, event_name, max_team_member, min_team_member, team_limit, year, is_delete) VALUES (1, 'ft', null, null, null, null, 0);
+INSERT INTO sport_system.event (event_id, event_name, max_team_member, min_team_member, team_limit, year, is_delete) VALUES (10, 'ft', null, null, null, null, 0);
+INSERT INTO sport_system.event (event_id, event_name, max_team_member, min_team_member, team_limit, year, is_delete) VALUES (11, 'fb', null, null, null, null, 0);
 CREATE TABLE sport_system.`match`
 (
     match_id int(11) PRIMARY KEY NOT NULL,
@@ -62,8 +70,10 @@ CREATE TABLE sport_system.registration
     create_time timestamp DEFAULT CURRENT_TIMESTAMP,
     is_delete int(11) DEFAULT '0'
 );
-INSERT INTO sport_system.registration (reg_id, team_id, event_id, create_time, is_delete) VALUES (1, 1, 1, null, 0);
-INSERT INTO sport_system.registration (reg_id, team_id, event_id, create_time, is_delete) VALUES (2, 2, 1, null, 0);
+INSERT INTO sport_system.registration (reg_id, team_id, event_id, create_time, is_delete) VALUES (1, 1, 10, '2018-10-24 13:48:52', 0);
+INSERT INTO sport_system.registration (reg_id, team_id, event_id, create_time, is_delete) VALUES (2, 3, 10, null, 0);
+INSERT INTO sport_system.registration (reg_id, team_id, event_id, create_time, is_delete) VALUES (3, 2, 11, '2018-10-24 21:08:23', 0);
+INSERT INTO sport_system.registration (reg_id, team_id, event_id, create_time, is_delete) VALUES (4, 4, 11, '2018-10-24 21:48:03', 0);
 CREATE TABLE sport_system.team
 (
     team_id int(11) NOT NULL,
@@ -72,15 +82,23 @@ CREATE TABLE sport_system.team
     CONSTRAINT `PRIMARY` PRIMARY KEY (team_id, user_id)
 );
 INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (1, 1, 0);
-INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (1, 2, 0);
+INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (1, 4, 0);
+INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (2, 5, 0);
 INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (2, 3, 0);
-INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (3, 4, 0);
+INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (3, 3, 0);
+INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (3, 5, 0);
+INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (4, 0, 0);
+INSERT INTO sport_system.team (team_id, user_id, is_delete) VALUES (4, 1, 0);
 CREATE TABLE sport_system.team_name
 (
     team_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     team_name varchar(50),
     is_delete int(11) DEFAULT '0'
 );
+INSERT INTO sport_system.team_name (team_id, team_name, is_delete) VALUES (1, 'dsa', 0);
+INSERT INTO sport_system.team_name (team_id, team_name, is_delete) VALUES (2, 'dsa', 0);
+INSERT INTO sport_system.team_name (team_id, team_name, is_delete) VALUES (3, 'dsa', 0);
+INSERT INTO sport_system.team_name (team_id, team_name, is_delete) VALUES (4, 'dsa', 0);
 CREATE TABLE sport_system.user
 (
     user_id int(11) PRIMARY KEY NOT NULL,
@@ -97,3 +115,4 @@ INSERT INTO sport_system.user (user_id, department_id, phone, gender, email, nam
 INSERT INTO sport_system.user (user_id, department_id, phone, gender, email, name, is_delete, is_admin, password) VALUES (2, null, null, null, null, 'zsy2', 0, 0, null);
 INSERT INTO sport_system.user (user_id, department_id, phone, gender, email, name, is_delete, is_admin, password) VALUES (3, null, null, null, null, 'zsy3', 0, 0, null);
 INSERT INTO sport_system.user (user_id, department_id, phone, gender, email, name, is_delete, is_admin, password) VALUES (4, null, null, null, null, 'zsy4', 0, 0, null);
+INSERT INTO sport_system.user (user_id, department_id, phone, gender, email, name, is_delete, is_admin, password) VALUES (5, null, null, null, null, null, 0, 0, null);
